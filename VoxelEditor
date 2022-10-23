@@ -4,8 +4,6 @@ using UnityEditor;
 [CustomEditor(typeof(Transform))]
 public class VoxelEditor : Editor
 {
-
-
     // Called when you click any Transform in the scene
     void OnEnable ()
     {
@@ -14,7 +12,6 @@ public class VoxelEditor : Editor
         // add a listener
         SceneView.duringSceneGui += OnScene;
     }
-
 
     // In examples it is recommended to uninstall the delegate listener
     // But we need [CustomEditor(typeof(Transform))] and this means Unity will call our Script whenever a Transform
@@ -29,8 +26,9 @@ public class VoxelEditor : Editor
     }
     private static void OnScene(SceneView sceneview)
     {
-        // uncomment if you want to make sure it runs
+        // uncomment if you want to make sure it runs:
         // Debug.Log("OnScene !");
+        
         if (Event.current.type == EventType.MouseDown)
         {
             // This kind of works, but results in wrong coordinates, maybe because of the Window offset or something.
@@ -49,5 +47,4 @@ public class VoxelEditor : Editor
             }
         }
     }
-
 }
